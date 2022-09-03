@@ -1,0 +1,14 @@
+.favorite-coins-container {
+    background-color: #ff962e;
+    height: 300px;
+    position: relative;
+
+    .favorite-coins-texts {
+        margin: 0 0 0 15%;
+        position: absolute;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        color: white;
+    }
+}

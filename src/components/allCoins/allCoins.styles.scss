@@ -1,0 +1,33 @@
+.allCoins-container {
+    padding: 5% 15%;
+
+    h3 {
+        font-weight: bold;
+    }
+
+    table {
+        width: 100%;
+    }
+      
+    table,
+    td {
+        text-align: right;
+    }
+      
+    .thName,
+    .tdName {
+        text-align: left;
+    }
+      
+    @media only screen and (max-width: 500px) {
+        .notInSmallScreen {
+          display: none;
+        }
+    }
+}
+
+  
+
+  
+
+  
