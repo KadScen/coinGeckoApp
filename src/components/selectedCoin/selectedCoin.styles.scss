@@ -1,0 +1,11 @@
+.selectedCoinContainer {
+    display: flex;
+    padding: 0 15%;
+}
+
+@media only screen and (max-width: 500px) {
+    .selectedCoinContainer {
+      flex-direction: column;
+    }
+  }
+  
