@@ -6,7 +6,21 @@
 
     p {
         font-weight: bold;
-      }
+
+        span {
+          font-weight: initial;
+        }
+    }
+
+    img {
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+
+    .addToFavButton {
+      cursor: pointer;
+      color: #1882e4;
+    }
 }
  
 @media only screen and (max-width: 500px) {

@@ -5,13 +5,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import { CurrencyDataProvider } from './contexts/currency-data.context';
+import { FavoriteCoinsProvider } from './contexts/favoriteCoins.context';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
     <CurrencyDataProvider>
-      <App />
+      <FavoriteCoinsProvider>
+        <App />
+      </FavoriteCoinsProvider>
     </CurrencyDataProvider>
   // </React.StrictMode>
 );

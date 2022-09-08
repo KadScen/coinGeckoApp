@@ -7,13 +7,6 @@ import "./allCoins.styles.scss";
 function AllCoins() {
   const { currenciesData, setCurrenciesData, setSelectedCurrency, coinList } =
     useContext(CurrencyDataContext);
-  // const coinList = [
-  //   "bitcoin",
-  //   "ethereum",
-  //   "ripple",
-  //   "bitcoin-cash",
-  //   "litecoin",
-  // ];
 
   useEffect(() => {
     const fetchCoinsData = async () => {

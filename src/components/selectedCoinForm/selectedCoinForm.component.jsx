@@ -6,7 +6,6 @@ import "./selectedCoinForm.styles.scss";
 
 function SelectedCoinForm() {
   const { coinList } = useContext(CurrencyDataContext);
-  console.log("this is the coin list", coinList);
 
   function capitalizeFirstLetter(currency) {
     return currency.charAt(0).toUpperCase() + currency.slice(1);

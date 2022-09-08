@@ -12,6 +12,7 @@ export const CurrencyDataProvider = ({ children }) => {
   const [currenciesData, setCurrenciesData] = useState([]);
   const [selectedCurrency, setSelectedCurrency] = useState(null);
   const coinList = useState(coinUsed);
+
   const value = {
     currenciesData,
     setCurrenciesData,
