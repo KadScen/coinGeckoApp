@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 import "./selectedCoinInfo.styles.scss";
 
@@ -8,6 +8,12 @@ import { FavoriteCoinsContext } from "../../contexts/favoriteCoins.context";
 function SelectedCoinInfo() {
   const { selectedCurrency } = useContext(CurrencyDataContext);
   const { favoriteCoins, setFavoriteCoins } = useContext(FavoriteCoinsContext);
+
+  const win = window.sessionStorage;
+
+  useEffect(() => {
+    win.setItem("favCoins", JSON.stringify(favoriteCoins));
+  }, [favoriteCoins]);
 
   function handleSetFavoriteCoins() {
     const existingCoin = favoriteCoins.find(

@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 
 import { FavoriteCoinsContext } from "../../contexts/favoriteCoins.context";
 
@@ -7,6 +7,17 @@ import "./favoriteCoins.styles.scss";
 export const FavoriteCoins = () => {
   const { favoriteCoins, setFavoriteCoins } = useContext(FavoriteCoinsContext);
   const [coinToDelete, setCoinToDelete] = useState(favoriteCoins);
+
+  const win = window.sessionStorage;
+
+  useEffect(() => {
+    if (win.getItem("favCoins"))
+      setFavoriteCoins(JSON.parse(win.getItem("favCoins")));
+    console.log(
+      "favoriteCoins afetr getting the data from the session storage",
+      favoriteCoins
+    );
+  }, []);
 
   const handleRemoveFavoriteCoin = (favCurrency) => {
     coinToDelete.filter((coinToRemove) => coinToRemove.id !== favCurrency.id);
