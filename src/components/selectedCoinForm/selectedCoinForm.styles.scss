@@ -52,6 +52,11 @@
     margin: 4px 2px;
     cursor: pointer;
   }
+
+  #submitResponseText {
+    color: #13a775;
+    font-weight: bold;
+  }
   
   @media only screen and (max-width: 500px) {
     .selectedCoinForm {
