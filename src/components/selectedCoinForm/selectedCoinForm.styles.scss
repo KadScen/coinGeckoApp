@@ -57,6 +57,15 @@
     color: #13a775;
     font-weight: bold;
   }
+
+  .buttonSelected {
+    color: white;
+    background-color: #ff962e;
+  }
+  .buttonNotSelected {
+    color: #ff962e;
+    background-color: white;
+  }
   
   @media only screen and (max-width: 500px) {
     .selectedCoinForm {
