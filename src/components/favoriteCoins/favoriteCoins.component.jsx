@@ -13,15 +13,18 @@ export const FavoriteCoins = () => {
   useEffect(() => {
     if (win.getItem("favCoins"))
       setFavoriteCoins(JSON.parse(win.getItem("favCoins")));
-    console.log(
-      "favoriteCoins afetr getting the data from the session storage",
-      favoriteCoins
-    );
   }, []);
 
-  const handleRemoveFavoriteCoin = (favCurrency) => {
-    coinToDelete.filter((coinToRemove) => coinToRemove.id !== favCurrency.id);
-    setFavoriteCoins(coinToDelete);
+  useEffect(() => {
+    setCoinToDelete(favoriteCoins);
+  }, [favoriteCoins]);
+
+  const handleRemoveFavoriteCoin = (currencyToDelete) => {
+    const newCoins = coinToDelete.filter(
+      (coinToRemove) => coinToRemove.id !== currencyToDelete.id
+    );
+    console.log("currency to delete is: ", newCoins);
+    setFavoriteCoins(newCoins);
   };
 
   if (favoriteCoins.length === 0) {

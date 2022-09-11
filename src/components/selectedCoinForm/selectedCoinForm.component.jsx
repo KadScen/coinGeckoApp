@@ -64,8 +64,6 @@ function SelectedCoinForm() {
     }
   };
 
-  console.log(isBuyOrSell);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     setCurrencyToBuy(e.target.currency.value);

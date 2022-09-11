@@ -27,8 +27,6 @@ function SelectedCoinInfo() {
     return setFavoriteCoins([...favoriteCoins, selectedCurrency]);
   }
 
-  console.log(favoriteCoins);
-
   return (
     <div className="selectedCoinInfo">
       <h3>
