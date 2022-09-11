@@ -46,13 +46,16 @@ export const FavoriteCoins = () => {
                   onClick={() => handleRemoveFavoriteCoin(favCurrency)}
                   key={favCurrency.id}
                 >
-                  <img
-                    width="30"
-                    height="30"
-                    alt={favCurrency.name}
-                    src={favCurrency.image}
-                  />
-                  {favCurrency.name}
+                  <span className="favorite-coin-button-content">
+                    <img
+                      width="30"
+                      height="30"
+                      alt={favCurrency.name}
+                      src={favCurrency.image}
+                    />
+                    <span>{favCurrency.name}</span>
+                  </span>
+                  <span className="removeButtonStyle">Remove</span>
                 </p>
               );
             })}

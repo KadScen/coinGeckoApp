@@ -31,6 +31,12 @@
             }
         }
 
+        .favorite-coin-button-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         .favorite-coin-button:hover {
             background-color: #ce7721;
             border: 1px solid #ce7721;
@@ -39,6 +45,20 @@
             display: flex;
             justify-content: center;
             align-items: center;
+
+            .removeButtonStyle {
+                display: block;
+            }
+
+            .favorite-coin-button-content {
+                display: none;
+            }
         }
+
+        .removeButtonStyle {
+            display: none;
+        }
+
+
     }
 }
