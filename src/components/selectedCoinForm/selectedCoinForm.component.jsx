@@ -120,7 +120,7 @@ function SelectedCoinForm() {
           type="number"
           name="amount"
           placeholder="Amount"
-          step=".0001"
+          step=".000001"
         ></input>
         <input type="submit"></input>
         <span id="submitResponseContainer"></span>
