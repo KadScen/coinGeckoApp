@@ -68,10 +68,12 @@ function SelectedCoinForm() {
     e.preventDefault();
     setCurrencyToBuy(e.target.currency.value);
     setAmountToBuy(e.target.amount.value);
+    const element = document.getElementById("submitResponseText");
+    const elementErr = document.getElementById("submitErrorResponseText");
+    if (element) element.remove();
+    if (elementErr) elementErr.remove();
 
     if (isBuyOrSell === "buy") {
-      const element = document.getElementById("submitResponseText");
-      if (element) element.remove();
       let x = document.createElement("p");
       x.setAttribute("id", "submitResponseText");
       x.innerText = `You Have Purchased ${amountToBuy} ${
@@ -81,8 +83,6 @@ function SelectedCoinForm() {
       }`;
       document.getElementById("submitResponseContainer").appendChild(x);
     } else if (isBuyOrSell === "sell") {
-      const element = document.getElementById("submitResponseText");
-      if (element) element.remove();
       let x = document.createElement("p");
       x.setAttribute("id", "submitResponseText");
       x.innerText = `You Have Sell ${amountToBuy} ${
@@ -90,6 +90,11 @@ function SelectedCoinForm() {
       } For ${fetchCurrenciesPriceDiff * amountToBuy} ${
         currenciesToBuyData.symbol
       }`;
+      document.getElementById("submitResponseContainer").appendChild(x);
+    } else {
+      let x = document.createElement("p");
+      x.setAttribute("id", "submitErrorResponseText");
+      x.innerText = `Please Select BUY Or Sell Above`;
       document.getElementById("submitResponseContainer").appendChild(x);
     }
   };
@@ -108,7 +113,7 @@ function SelectedCoinForm() {
         <select id="currency" name="currency">
           {coinList[0].map((currency) => {
             return (
-              <option name="currency" key={currency} value={currency}>
+              <option name="currency" key={currency} value={currency} required>
                 {capitalizeFirstLetter(currency)}
               </option>
             );
@@ -119,6 +124,7 @@ function SelectedCoinForm() {
           name="amount"
           placeholder="Amount"
           step=".000001"
+          required
         ></input>
         <input type="submit"></input>
         <span id="submitResponseContainer"></span>

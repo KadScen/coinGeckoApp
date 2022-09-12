@@ -27,6 +27,10 @@ export const FavoriteCoins = () => {
     setFavoriteCoins(newCoins);
   };
 
+  useEffect(() => {
+    win.setItem("favCoins", JSON.stringify(favoriteCoins));
+  }, [favoriteCoins]);
+
   if (favoriteCoins.length === 0) {
     return (
       <div className="favorite-coins-container">
