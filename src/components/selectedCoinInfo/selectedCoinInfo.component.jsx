@@ -11,6 +11,10 @@ function SelectedCoinInfo() {
 
   const win = window.sessionStorage;
 
+  document
+    .getElementById("alreadyInFavMessage")
+    .setAttribute("class", "isVisible");
+
   useEffect(() => {
     win.setItem("favCoins", JSON.stringify(favoriteCoins));
   }, [favoriteCoins]);
@@ -21,6 +25,9 @@ function SelectedCoinInfo() {
     );
 
     if (existingCoin) {
+      document
+        .getElementById("alreadyInFavMessage")
+        .removeAttribute("class", "isVisible");
       return null;
     }
 
@@ -64,6 +71,9 @@ function SelectedCoinInfo() {
       <p className="addToFavButton" onClick={() => handleSetFavoriteCoins()}>
         + ADD TO FAVORITES
       </p>
+      <span id="alreadyInFavMessage" className="isVisible">
+        Currency already added to favorite
+      </span>
     </div>
   );
 }
