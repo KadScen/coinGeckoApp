@@ -34,12 +34,14 @@
     border: none;
     border-bottom: 1px solid #e2e2e2;
     margin-bottom: 15%;
+    height: 40px;
   }
   
   input[type="number"] {
     border: none;
     border-bottom: 1px solid #e2e2e2;
     margin-bottom: 15%;
+    height: 40px;
   }
   
   input[type="submit"] {
@@ -59,11 +61,15 @@
     color: #13a775;
     font-weight: bold;
   }
-
-  #submitErrorResponseText {
-    color: #ff3939;
-    font-weight: bold;
+  
+  .isVisible {
+    display: none;
   }
+
+  // #submitErrorResponseText {
+  //   color: #ff3939;
+  //   font-weight: bold;
+  // }
 
   .buttonSelected {
     color: white;

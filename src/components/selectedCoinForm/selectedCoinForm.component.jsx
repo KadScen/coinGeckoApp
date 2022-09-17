@@ -48,10 +48,11 @@ function SelectedCoinForm() {
     currenciesDiffPrice();
   }, [selectedCurrency, currenciesToBuyData]);
 
-  // console.log("it cost: ", fetchCurrenciesPriceDiff);
-  // console.log("Currency to buy Data Works!?: ", currenciesToBuyData);
-
   const handleBuyOrSell = (data) => {
+    const hideElement = document.getElementById("submitResponseText");
+    if (hideElement) {
+      hideElement.setAttribute("class", "isVisible");
+    }
     setIsBuyOrSell(data);
     const getBuyButton = document.getElementById("buyButton");
     const getSellButton = document.getElementById("sellButton");
@@ -68,34 +69,30 @@ function SelectedCoinForm() {
     e.preventDefault();
     setCurrencyToBuy(e.target.currency.value);
     setAmountToBuy(e.target.amount.value);
-    const element = document.getElementById("submitResponseText");
-    const elementErr = document.getElementById("submitErrorResponseText");
-    if (element) element.remove();
-    if (elementErr) elementErr.remove();
 
+    const hideElement = document.getElementById("submitResponseText");
+    if (hideElement) {
+      hideElement.removeAttribute("class", "isVisible");
+    }
+  };
+
+  const renderSubmitAnswer = () => {
     if (isBuyOrSell === "buy") {
-      let x = document.createElement("p");
-      x.setAttribute("id", "submitResponseText");
-      x.innerText = `You Have Purchased ${amountToBuy} ${
-        selectedCurrency.symbol
-      } For ${fetchCurrenciesPriceDiff * amountToBuy} ${
-        currenciesToBuyData.symbol
-      }`;
-      document.getElementById("submitResponseContainer").appendChild(x);
+      return (
+        <p id="submitResponseText" className="isVisible">
+          You Have Purchased {amountToBuy} {selectedCurrency.symbol} For{" "}
+          {fetchCurrenciesPriceDiff * amountToBuy} {currenciesToBuyData.symbol}
+        </p>
+      );
     } else if (isBuyOrSell === "sell") {
-      let x = document.createElement("p");
-      x.setAttribute("id", "submitResponseText");
-      x.innerText = `You Have Sell ${amountToBuy} ${
-        selectedCurrency.symbol
-      } For ${fetchCurrenciesPriceDiff * amountToBuy} ${
-        currenciesToBuyData.symbol
-      }`;
-      document.getElementById("submitResponseContainer").appendChild(x);
+      return (
+        <p id="submitResponseText" className="isVisible">
+          You Have Sold {amountToBuy} {selectedCurrency.symbol} For{" "}
+          {fetchCurrenciesPriceDiff * amountToBuy} {currenciesToBuyData.symbol}
+        </p>
+      );
     } else {
-      let x = document.createElement("p");
-      x.setAttribute("id", "submitErrorResponseText");
-      x.innerText = `Please Select BUY Or Sell Above`;
-      document.getElementById("submitResponseContainer").appendChild(x);
+      return <p id="submitErrorResponseText">*Select BUY Or Sell Above</p>;
     }
   };
 
@@ -127,7 +124,7 @@ function SelectedCoinForm() {
           required
         ></input>
         <input type="submit"></input>
-        <span id="submitResponseContainer"></span>
+        <span id="submitResponseContainer">{renderSubmitAnswer()}</span>
       </form>
     </div>
   );
