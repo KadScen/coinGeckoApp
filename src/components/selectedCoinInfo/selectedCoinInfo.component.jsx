@@ -11,9 +11,10 @@ function SelectedCoinInfo() {
 
   const win = window.sessionStorage;
 
-  document
-    .getElementById("alreadyInFavMessage")
-    .setAttribute("class", "isVisible");
+  const element = document.getElementById("alreadyInFavMessage");
+  if (element) {
+    element.setAttribute("class", "isVisible");
+  }
 
   useEffect(() => {
     win.setItem("favCoins", JSON.stringify(favoriteCoins));
